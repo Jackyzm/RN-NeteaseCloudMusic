@@ -14,18 +14,16 @@ import {
     SafeAreaView,
     StatusBar,
 } from 'react-native';
-import {
-    createAppContainer,
-    createMaterialTopTabNavigator,
-    // createDrawerNavigator,
-} from 'react-navigation';
-import Header from './components';
+import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { Header, CustomDrawerContentComponent, Footer } from './components';
+
 import Home from './routes/Home';
 import Detail from './routes/Detail';
 
-// import Drawer from './routes/Drawer';
+import Drawer from './routes/Drawer';
 
-const AppNavigator = createMaterialTopTabNavigator(
+const TabNavigatorScreen = createMaterialTopTabNavigator(
     {
         Home: {
             screen: Home,
@@ -40,14 +38,19 @@ const AppNavigator = createMaterialTopTabNavigator(
     }
 );
 
-// const AppDrawer = createDrawerNavigator({
-//     Drawer: {
-//         screen: Drawer,
-//     },
-// });
+const DrawerNavigator = createDrawerNavigator(
+    {
+        Home: TabNavigatorScreen,
+        Drawer,
+    },
+    {
+        drawerWidth: 300, // 展示的宽度
+        drawerPosition: 'left', // 抽屉在左边还是右边
+        contentComponent: CustomDrawerContentComponent, // 自定义抽屉组件
+    }
+);
 
-const AppContainer = createAppContainer(AppNavigator);
-// const DrawerContainer = createAppContainer(AppDrawer);
+const AppContainer = createAppContainer(DrawerNavigator);
 
 // const instructions = Platform.select({
 //   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -82,8 +85,8 @@ export default class App extends Component {
             <SafeAreaView style={styles.SafeAreaView}>
                 <StatusBar barStyle="light-content" />
                 <View style={styles.container}>
-                    {/* <DrawerContainer /> */}
                     <AppContainer />
+                    <Footer />
                     <View style={styles.flexBottom} />
                 </View>
             </SafeAreaView>

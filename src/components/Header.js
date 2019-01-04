@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 
 const styles = StyleSheet.create({
     Header: {
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     centerIcon: {
         paddingLeft: 10,
         paddingRight: 10,
-        color: '#ccc',
+        color: '#e0e0e0',
     },
     searchIcon: {},
 });
@@ -37,7 +38,7 @@ class Header extends Component {
     }
 
     render() {
-        console.log(this, this.props.navigation.state);
+        const { navigation } = this.props;
         let isMusic = false;
         let isFind = false;
         let isMV = false;
@@ -57,35 +58,29 @@ class Header extends Component {
         return (
             <View style={styles.Header}>
                 <View>
-                    <Text style={[styles.utilIconStyle, styles.drawerIcon]}>&#xe602;</Text>
+                    <Text onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={styles.utilIconStyle}>
+                        &#xe602;
+                    </Text>
                 </View>
                 <View style={styles.center}>
                     <Text
-                      style={[
-                            styles.utilIconStyle,
-                            styles.centerIcon,
-                            isMusic ? { color: '#fff' } : { color: '#fff' },
-                        ]}
+                        onPress={() => navigation.navigate('Home')}
+                        style={[styles.utilIconStyle, styles.centerIcon, isMusic ? { color: '#fff' } : {}]}
                     >
                         &#xe601;
                     </Text>
                     <Text
-                      style={[
-                            styles.utilIconStyle,
-                            styles.centerIcon,
-                            isFind ? { color: '#fff' } : { color: '#fff' },
-                        ]}
+                        onPress={() => navigation.navigate('Detail')}
+                        style={[styles.utilIconStyle, styles.centerIcon, isFind ? { color: '#fff' } : {}]}
                     >
                         &#xe600;
                     </Text>
-                    <Text
-                      style={[styles.utilIconStyle, styles.centerIcon, isMV ? { color: '#fff' } : { color: '#fff' }]}
-                    >
+                    <Text style={[styles.utilIconStyle, styles.centerIcon, isMV ? { color: '#fff' } : {}]}>
                         &#xe60c;
                     </Text>
                 </View>
                 <View>
-                    <Text style={[styles.utilIconStyle, styles.searchIcon]}>&#xe603;</Text>
+                    <Text style={styles.utilIconStyle}>&#xe603;</Text>
                 </View>
             </View>
         );

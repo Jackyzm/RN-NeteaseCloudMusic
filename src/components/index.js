@@ -1,3 +1,6 @@
 import Header from './Header';
+import Footer from './Footer';
 
-export default Header;
+import CustomDrawerContentComponent from './CustomDrawerContentComponent';
+
+export { Header, Footer, CustomDrawerContentComponent };

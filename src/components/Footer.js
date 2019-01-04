@@ -1,9 +1,19 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-class Footer extends React.Component {
+const styles = StyleSheet.create({
+    Footer: {
+        backgroundColor: '#d43c33',
+    },
+});
+
+class Footer extends Component {
     render() {
-        return <View>123</View>;
+        return (
+            <View style={styles.Footer}>
+                <Text>123</Text>
+            </View>
+        );
     }
 }
 

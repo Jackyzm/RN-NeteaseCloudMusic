@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-class Drawer extends React.Component {
+class Drawer extends Component {
     render() {
         return (
             <View>
-                <Text>123</Text>
+                <Text>Drawer</Text>
             </View>
         );
     }

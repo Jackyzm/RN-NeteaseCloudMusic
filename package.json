@@ -4,7 +4,8 @@
     "private": true,
     "scripts": {
         "dev": "node node_modules/react-native/local-cli/cli.js start",
-        "start": "react-native start --reset-cache",
+        "start": "react-native start",
+        "start-reset-cache": "react-native start --reset-cache",
         "android": "react-native android",
         "ios": "react-native ios",
         "test": "jest",
@@ -15,7 +16,8 @@
         "react": "16.6.3",
         "react-native": "0.57.8",
         "react-native-gesture-handler": "^1.0.12",
-        "react-navigation": "^3.0.9"
+        "react-navigation": "^3.0.9",
+        "react-navigation-drawer": "^1.0.5"
     },
     "devDependencies": {
         "babel-eslint": "^10.0.1",
