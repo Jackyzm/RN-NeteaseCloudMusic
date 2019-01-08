@@ -7,6 +7,7 @@
  */
 
 import React, { Component } from 'react';
+import { Provider } from 'mobx-react';
 import {
     // Platform,
     StyleSheet,
@@ -16,7 +17,10 @@ import {
 } from 'react-native';
 import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { Header, CustomDrawerContentComponent, Footer } from './components';
+import stores from './stores';
+
+import theme from './utils/theme';
+import { Header, CustomDrawerContentComponent } from '@components';
 
 import Home from './routes/Home';
 import Detail from './routes/Detail';
@@ -62,7 +66,7 @@ const AppContainer = createAppContainer(DrawerNavigator);
 const styles = StyleSheet.create({
     SafeAreaView: {
         flex: 1,
-        backgroundColor: '#d43c33',
+        backgroundColor: theme.primaryTheme.color,
     },
     container: {
         flex: 1,
@@ -82,14 +86,15 @@ const styles = StyleSheet.create({
 export default class App extends Component {
     render() {
         return (
-            <SafeAreaView style={styles.SafeAreaView}>
-                <StatusBar barStyle="light-content" />
-                <View style={styles.container}>
-                    <AppContainer />
-                    <Footer />
-                    <View style={styles.flexBottom} />
-                </View>
-            </SafeAreaView>
+            <Provider {...stores}>
+                <SafeAreaView style={styles.SafeAreaView}>
+                    <StatusBar barStyle="light-content" />
+                    <View style={styles.container}>
+                        <AppContainer />
+                        <View style={styles.flexBottom} />
+                    </View>
+                </SafeAreaView>
+            </Provider>
         );
     }
 }

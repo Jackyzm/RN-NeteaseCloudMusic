@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { DrawerActions } from 'react-navigation-drawer';
+import theme from '@utils/theme';
 
 const styles = StyleSheet.create({
     Header: {
         height: 50,
         width: '100%',
-        backgroundColor: '#d43c33',
+        backgroundColor: theme.primaryTheme.color,
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingLeft: 20,
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
     searchIcon: {},
 });
 
+@withNavigation
 class Header extends Component {
     constructor(props) {
         super(props);
@@ -87,4 +89,4 @@ class Header extends Component {
     }
 }
 
-export default withNavigation(Header);
+export default Header;
