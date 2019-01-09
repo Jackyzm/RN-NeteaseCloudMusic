@@ -73,7 +73,7 @@ export default function request(url, options) {
             })
             // eslint-disable-next-line
             .catch(e => {
-                Alert.alert('提示', '网络错误', [{ text: '确定', onPress: () => {} }]);
+                Alert.alert('提示', '当前网络不可用', [{ text: '确定', onPress: () => {} }]);
             })
     );
 }

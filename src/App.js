@@ -15,36 +15,22 @@ import {
     SafeAreaView,
     StatusBar,
 } from 'react-native';
-import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
+import theme from '@utils/theme';
+import NavigationService from '@utils/NavigationService';
 import stores from './stores';
 
-import theme from './utils/theme';
-import { Header, CustomDrawerContentComponent } from '@components';
+import { CustomDrawerContentComponent } from '@components';
 
-import Home from './routes/Home';
-import Detail from './routes/Detail';
+import TabNavigatorScreenContainerComponent from './router';
 
 import Drawer from './routes/Drawer';
 
-const TabNavigatorScreen = createMaterialTopTabNavigator(
-    {
-        Home: {
-            screen: Home,
-        },
-        Detail: {
-            screen: Detail,
-        },
-    },
-    {
-        initialRouteName: 'Home',
-        tabBarComponent: () => <Header />,
-    }
-);
-
+// 最外层嵌套左侧Drawer
 const DrawerNavigator = createDrawerNavigator(
     {
-        Home: TabNavigatorScreen,
+        Home: TabNavigatorScreenContainerComponent,
         Drawer,
     },
     {
@@ -90,7 +76,11 @@ export default class App extends Component {
                 <SafeAreaView style={styles.SafeAreaView}>
                     <StatusBar barStyle="light-content" />
                     <View style={styles.container}>
-                        <AppContainer />
+                        <AppContainer
+                            ref={(navigatorRef) => {
+                                NavigationService.setTopLevelNavigator(navigatorRef);
+                            }}
+                        />
                         <View style={styles.flexBottom} />
                     </View>
                 </SafeAreaView>

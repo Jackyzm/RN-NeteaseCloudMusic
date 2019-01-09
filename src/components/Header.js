@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import { DrawerActions } from 'react-navigation-drawer';
 import theme from '@utils/theme';
+import NavigationService from '@utils/NavigationService';
 
 const styles = StyleSheet.create({
     Header: {
@@ -60,8 +60,8 @@ class Header extends Component {
         return (
             <View style={styles.Header}>
                 <View>
-                    <Text onPress={() => navigation.dispatch(DrawerActions.openDrawer())} style={styles.utilIconStyle}>
-                        &#xe602;
+                    <Text onPress={() => NavigationService.openDrawer()} style={styles.utilIconStyle}>
+                        &#xe74f;
                     </Text>
                 </View>
                 <View style={styles.center}>
