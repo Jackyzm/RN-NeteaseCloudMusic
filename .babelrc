@@ -14,7 +14,9 @@
                 "alias": {
                     "@": "./src",
                     "@utils": "./src/utils",
-                    "@components": "./src/components"
+                    "@components": "./src/components",
+                    "@routes": "./src/routes",
+                    "@assets": "./src/assets"
                 }
             }
         ]

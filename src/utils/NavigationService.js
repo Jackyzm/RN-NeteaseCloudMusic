@@ -1,15 +1,15 @@
 class NavigationService {
     constructor() {
-        this._navigator = {};
+        this.navigation = {};
     }
 
     setTopLevelNavigator(navigatorRef) {
-        this._navigator = navigatorRef._navigation;
+        this.navigation = navigatorRef._navigation;
     }
 
     openDrawer() {
-        if (this._navigator && this._navigator.openDrawer) {
-            this._navigator.openDrawer();
+        if (this.navigation && this.navigation.openDrawer) {
+            this.navigation.openDrawer();
         }
     }
 }

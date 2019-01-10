@@ -46,15 +46,9 @@ class Header extends Component {
         let isMV = false;
         if (this.props.navigation.state.index === 0) {
             isMusic = true;
-            isFind = false;
-            isMV = false;
         } else if (this.props.navigation.state.index === 1) {
-            isMusic = false;
             isFind = true;
-            isMV = false;
         } else {
-            isMusic = false;
-            isFind = false;
             isMV = true;
         }
         return (
@@ -77,7 +71,10 @@ class Header extends Component {
                     >
                         &#xe600;
                     </Text>
-                    <Text style={[styles.utilIconStyle, styles.centerIcon, isMV ? { color: '#fff' } : {}]}>
+                    <Text
+                        onPress={() => NavigationService.navigation.navigate('Drawer')}
+                        style={[styles.utilIconStyle, styles.centerIcon, isMV ? { color: '#fff' } : {}]}
+                    >
                         &#xe60c;
                     </Text>
                 </View>

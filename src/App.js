@@ -12,35 +12,17 @@ import {
     // Platform,
     StyleSheet,
     View,
-    SafeAreaView,
+    // SafeAreaView,
     StatusBar,
 } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createDrawerNavigator } from 'react-navigation-drawer';
+
 import theme from '@utils/theme';
 import NavigationService from '@utils/NavigationService';
+import storage from '@utils/storage';
+import AppContainer from './routers';
 import stores from './stores';
 
-import { CustomDrawerContentComponent } from '@components';
-
-import TabNavigatorScreenContainerComponent from './router';
-
-import Drawer from './routes/Drawer';
-
-// 最外层嵌套左侧Drawer
-const DrawerNavigator = createDrawerNavigator(
-    {
-        Home: TabNavigatorScreenContainerComponent,
-        Drawer,
-    },
-    {
-        drawerWidth: 300, // 展示的宽度
-        drawerPosition: 'left', // 抽屉在左边还是右边
-        contentComponent: CustomDrawerContentComponent, // 自定义抽屉组件
-    }
-);
-
-const AppContainer = createAppContainer(DrawerNavigator);
+global.storage = storage;
 
 // const instructions = Platform.select({
 //   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -59,31 +41,22 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         position: 'relative',
     },
-    flexBottom: {
-        backgroundColor: '#fff',
-        position: 'absolute',
-        bottom: -40,
-        right: 0,
-        left: 0,
-        height: 40,
-    },
 });
 
 export default class App extends Component {
     render() {
         return (
             <Provider {...stores}>
-                <SafeAreaView style={styles.SafeAreaView}>
+                <View style={styles.SafeAreaView}>
                     <StatusBar barStyle="light-content" />
                     <View style={styles.container}>
                         <AppContainer
-                            ref={(navigatorRef) => {
+                            ref={navigatorRef => {
                                 NavigationService.setTopLevelNavigator(navigatorRef);
                             }}
                         />
-                        <View style={styles.flexBottom} />
                     </View>
-                </SafeAreaView>
+                </View>
             </Provider>
         );
     }
