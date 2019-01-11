@@ -1,12 +1,12 @@
-// 顶层router
+// Drawer router
 
-class NavigationService {
+class DrawerNavigationService {
     constructor() {
         this.navigation = {};
     }
 
     setTopLevelNavigator(navigatorRef) {
-        this.navigation = navigatorRef._navigation;
+        this.navigation = navigatorRef.navigation;
     }
 
     openDrawer() {
@@ -16,4 +16,4 @@ class NavigationService {
     }
 }
 
-export default new NavigationService();
+export default new DrawerNavigationService();

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Text, ScrollView, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { Text, ScrollView, View, StyleSheet, Image } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import theme from '@utils/theme';
 import { padding, shadow } from '@utils/style';
 import { isEmptyObj } from '@utils/utils';
+import { Button } from '@components';
 
 const styles = StyleSheet.create({
     topUserBox: {
@@ -88,38 +89,34 @@ class Home extends Component {
                                         <Text style={{ lineHeight: 50, marginLeft: 10 }}>{userInfo.name}</Text>
                                     </View>
                                     <View style={{ paddingTop: 10 }}>
-                                        <TouchableOpacity
+                                        <Button
                                             onPress={this.toJoinVip}
                                             style={{
-                                                borderWidth: 1,
-                                                borderColor: theme.primaryTheme.color,
-                                                ...padding(6),
-                                                borderRadius: 30,
+                                                paddingRight: 6,
+                                                paddingLeft: 6,
+                                                borderRadius: 16,
                                             }}
                                         >
-                                            <Text style={{ color: theme.primaryTheme.color, fontSize: 12 }}>
-                                                开通会员
-                                            </Text>
-                                        </TouchableOpacity>
+                                            开通会员
+                                        </Button>
                                     </View>
                                 </View>
                                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10 }}>
                                     <View style={{ flexDirection: 'row' }}>
-                                        <TouchableOpacity
+                                        <Button
                                             onPress={() => {}}
                                             style={{
-                                                width: 31,
-                                                height: 20,
-                                                borderWidth: 1,
-                                                borderColor: theme.primaryTheme.color,
-                                                ...padding(2),
+                                                width: 32,
+                                                lineHeight: 18,
+                                                paddingRight: 2,
+                                                paddingLeft: 2,
                                             }}
                                         >
-                                            <Text style={{ color: theme.primaryTheme.color, fontSize: 12 }}>福利</Text>
-                                        </TouchableOpacity>
-                                        <Text style={{ marginLeft: 10, marginTop: 1 }}>黑胶VIP 首开低至9元</Text>
+                                            福利
+                                        </Button>
+                                        <Text style={{ marginLeft: 10, marginTop: 2 }}>黑胶VIP 首开低至9元</Text>
                                     </View>
-                                    <View style={{ flexDirection: 'row', marginTop: 1 }}>
+                                    <View style={{ flexDirection: 'row', marginTop: 2 }}>
                                         <Text>更多</Text>
                                         <Text style={{ fontFamily: 'iconfont' }}>&#xe605;</Text>
                                     </View>

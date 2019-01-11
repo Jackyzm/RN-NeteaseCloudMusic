@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -22,9 +23,9 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		249DB6BB21E5F49D006E793C /* iconfont.svg in Resources */ = {isa = PBXBuildFile; fileRef = 249DB6B821E5F49C006E793C /* iconfont.svg */; };
-		249DB6BC21E5F49D006E793C /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 249DB6B921E5F49C006E793C /* iconfont.ttf */; };
-		249DB6BD21E5F49D006E793C /* iconfont.woff in Resources */ = {isa = PBXBuildFile; fileRef = 249DB6BA21E5F49C006E793C /* iconfont.woff */; };
+		242D2A3E21E88D08009AF6F2 /* iconfont.svg in Resources */ = {isa = PBXBuildFile; fileRef = 242D2A3B21E88D07009AF6F2 /* iconfont.svg */; };
+		242D2A3F21E88D08009AF6F2 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 242D2A3C21E88D07009AF6F2 /* iconfont.ttf */; };
+		242D2A4021E88D08009AF6F2 /* iconfont.woff in Resources */ = {isa = PBXBuildFile; fileRef = 242D2A3D21E88D08009AF6F2 /* iconfont.woff */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -361,9 +362,9 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = NeteaseCloudMusic/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = NeteaseCloudMusic/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		249DB6B821E5F49C006E793C /* iconfont.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = iconfont.svg; path = ../src/assets/fonts/iconfont.svg; sourceTree = "<group>"; };
-		249DB6B921E5F49C006E793C /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = iconfont.ttf; path = ../src/assets/fonts/iconfont.ttf; sourceTree = "<group>"; };
-		249DB6BA21E5F49C006E793C /* iconfont.woff */ = {isa = PBXFileReference; lastKnownFileType = file; name = iconfont.woff; path = ../src/assets/fonts/iconfont.woff; sourceTree = "<group>"; };
+		242D2A3B21E88D07009AF6F2 /* iconfont.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = iconfont.svg; path = ../src/assets/fonts/iconfont.svg; sourceTree = "<group>"; };
+		242D2A3C21E88D07009AF6F2 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = iconfont.ttf; path = ../src/assets/fonts/iconfont.ttf; sourceTree = "<group>"; };
+		242D2A3D21E88D08009AF6F2 /* iconfont.woff */ = {isa = PBXFileReference; lastKnownFileType = file; name = iconfont.woff; path = ../src/assets/fonts/iconfont.woff; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* NeteaseCloudMusic-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NeteaseCloudMusic-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* NeteaseCloudMusic-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NeteaseCloudMusic-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -553,7 +554,6 @@
 			isa = PBXGroup;
 			children = (
 				840DFFA2035D4F27A6BEE269 /* libRNGestureHandler.a */,
-				8EE8DEAA2BB44CA09F1F75A0 /* libBVLinearGradient.a */,
 				73D7526B47BE4328AC45AC4C /* libRNFS.a */,
 			);
 			name = "Recovered References";
@@ -671,9 +671,9 @@
 		DBA2FAC4162A425380262DD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				249DB6B821E5F49C006E793C /* iconfont.svg */,
-				249DB6B921E5F49C006E793C /* iconfont.ttf */,
-				249DB6BA21E5F49C006E793C /* iconfont.woff */,
+				242D2A3B21E88D07009AF6F2 /* iconfont.svg */,
+				242D2A3C21E88D07009AF6F2 /* iconfont.ttf */,
+				242D2A3D21E88D08009AF6F2 /* iconfont.woff */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1151,10 +1151,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				249DB6BB21E5F49D006E793C /* iconfont.svg in Resources */,
-				249DB6BC21E5F49D006E793C /* iconfont.ttf in Resources */,
-				249DB6BD21E5F49D006E793C /* iconfont.woff in Resources */,
+				242D2A3F21E88D08009AF6F2 /* iconfont.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				242D2A4021E88D08009AF6F2 /* iconfont.woff in Resources */,
+				242D2A3E21E88D08009AF6F2 /* iconfont.svg in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1286,9 +1286,7 @@
 				INFOPLIST_FILE = NeteaseCloudMusicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1312,9 +1310,7 @@
 				INFOPLIST_FILE = NeteaseCloudMusicTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1391,9 +1387,7 @@
 				);
 				INFOPLIST_FILE = "NeteaseCloudMusic-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1425,9 +1419,7 @@
 				);
 				INFOPLIST_FILE = "NeteaseCloudMusic-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1458,9 +1450,7 @@
 				);
 				INFOPLIST_FILE = "NeteaseCloudMusic-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1491,9 +1481,7 @@
 				);
 				INFOPLIST_FILE = "NeteaseCloudMusic-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",

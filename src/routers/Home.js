@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigation';
 import { Header, Footer } from '@components';
-
 import Home from '@routes/Home';
 import Detail from '@routes/Detail';
 
 // 顶部路由
-const TabNavigatorScreen = createMaterialTopTabNavigator(
+const HomeNavigatorScreen = createMaterialTopTabNavigator(
     {
-        Home: {
-            screen: Home,
-        },
-        Detail: {
-            screen: Detail,
-        },
+        Home,
+        Detail,
     },
     {
         initialRouteName: 'Home',
@@ -22,13 +17,13 @@ const TabNavigatorScreen = createMaterialTopTabNavigator(
 );
 
 // footer置入
-const TabNavigatorScreenContainer = createAppContainer(TabNavigatorScreen);
+const HomeContainer = createAppContainer(HomeNavigatorScreen);
 
 @Footer
-class MainContainerComponent extends Component {
+class HomeContainerComponent extends Component {
     render() {
-        return <TabNavigatorScreenContainer />;
+        return <HomeContainer />;
     }
 }
 
-export default MainContainerComponent;
+export default HomeContainerComponent;

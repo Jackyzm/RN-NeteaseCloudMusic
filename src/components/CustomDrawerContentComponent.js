@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import { observer, inject } from 'mobx-react';
 import { isEmptyObj } from '@utils/utils';
 import { Button } from '@components';
-import { padding } from '@utils/style';
+import NavigationService from '@utils/NavigationService';
 
 const styles = StyleSheet.create({
     CustomDrawerContentComponent: {
@@ -37,21 +37,17 @@ class CustomDrawerContentComponent extends Component {
                         <Text style={{ textAlign: 'center', color: '#f0f0f0', lineHeight: 24 }}>
                             手机电脑多端同步，尽享海量高品质音乐
                         </Text>
-                        <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 10 }}>
                             <Button
                                 onPress={() => {
-                                    this.props.navigation.navigate('Login');
+                                    NavigationService.navigation.navigate('Login');
                                 }}
                                 style={{
-                                    borderWidth: 1,
-                                    borderColor: '#f0f0f0',
-                                    marginTop: 10,
-                                    ...padding(6),
-                                    borderRadius: 20,
-                                    paddingLeft: 12,
-                                    paddingRight: 12,
+                                    borderColor: '#aaa',
+                                    borderRadius: 15,
+                                    fontSize: 12,
+                                    color: '#fff',
                                 }}
-                                textStyle={{ color: '#fff', fontSize: 12 }}
                             >
                                 立即登录
                             </Button>

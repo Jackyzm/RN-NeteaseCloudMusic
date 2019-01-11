@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import theme from '@utils/theme';
-import NavigationService from '@utils/NavigationService';
+import DrawerNavigationService from '@utils/DrawerNavigationService';
 
 const styles = StyleSheet.create({
     Header: {
@@ -54,7 +54,7 @@ class Header extends Component {
         return (
             <View style={styles.Header}>
                 <View>
-                    <Text onPress={() => NavigationService.openDrawer()} style={styles.utilIconStyle}>
+                    <Text onPress={() => DrawerNavigationService.navigation.openDrawer()} style={styles.utilIconStyle}>
                         &#xe74f;
                     </Text>
                 </View>
@@ -72,7 +72,7 @@ class Header extends Component {
                         &#xe600;
                     </Text>
                     <Text
-                        onPress={() => NavigationService.navigation.navigate('Drawer')}
+                        onPress={() => navigation.navigate('Drawer')}
                         style={[styles.utilIconStyle, styles.centerIcon, isMV ? { color: '#fff' } : {}]}
                     >
                         &#xe60c;
