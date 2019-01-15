@@ -4,9 +4,16 @@ export async function _getPersonalized() {
     return await request('/personalized');
 }
 
-export async function postHirePersonAvatar(params) {
-    return await request('/api/hr/hirePerson/upload', {
+export async function _loginWithPhone(params) {
+    return await request('/login/cellphone', {
         method: 'POST',
-        body: params
+        body: params,
+    });
+}
+
+export async function _loginWithEmail(params) {
+    return await request('/login', {
+        method: 'POST',
+        body: params,
     });
 }

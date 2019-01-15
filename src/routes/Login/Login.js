@@ -85,7 +85,12 @@ class Login extends Component {
                             </Button>
                         </View>
                         <View style={{ marginTop: 30 }}>
-                            <Button style={{ width: '80%', lineHeight: 40, borderRadius: 20, fontSize: 14 }}>
+                            <Button
+                                onPress={() => {
+                                    navigation.navigate('Register');
+                                }}
+                                style={{ width: '80%', lineHeight: 40, borderRadius: 20, fontSize: 14 }}
+                            >
                                 注册
                             </Button>
                         </View>

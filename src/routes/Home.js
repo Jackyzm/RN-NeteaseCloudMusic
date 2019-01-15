@@ -83,10 +83,12 @@ class Home extends Component {
                                 <View style={styles.userAvatar}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <Image
-                                            source={{ uri: userInfo.avatar }}
+                                            source={{ uri: userInfo.profile.avatarUrl }}
                                             style={{ backgroundColor: '#ccc', width: 50, height: 50, borderRadius: 25 }}
                                         />
-                                        <Text style={{ lineHeight: 50, marginLeft: 10 }}>{userInfo.name}</Text>
+                                        <Text style={{ lineHeight: 50, marginLeft: 10 }}>
+                                            {userInfo.profile.nickname}
+                                        </Text>
                                     </View>
                                     <View style={{ paddingTop: 10 }}>
                                         <Button
@@ -110,6 +112,7 @@ class Home extends Component {
                                                 lineHeight: 18,
                                                 paddingRight: 2,
                                                 paddingLeft: 2,
+                                                fontSize: 12,
                                             }}
                                         >
                                             福利

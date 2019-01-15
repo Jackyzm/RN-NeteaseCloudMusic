@@ -12,7 +12,6 @@ import {
     // Platform,
     StyleSheet,
     View,
-    // SafeAreaView,
     StatusBar,
 } from 'react-native';
 

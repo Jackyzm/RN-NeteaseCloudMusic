@@ -34,11 +34,11 @@ class Button extends Component {
                     style={{
                         borderWidth: 1,
                         borderColor: style.borderColor || '#d43c33',
-                        paddingRight: 10,
-                        paddingLeft: 10,
+                        paddingRight: style.paddingRight || 10,
+                        paddingLeft: style.paddingLeft || 10,
                         width: style.width,
                         borderRadius: style.borderRadius,
-                        backgroundColor: click ? style.borderColor || '#d43c33' : null,
+                        backgroundColor: click ? style.borderColor || '#d43c33' : style.backgroundColor || null,
                     }}
                 >
                     <Text

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flexBottom: {
         backgroundColor: '#fff',
         position: 'absolute',
-        bottom: -6,
+        bottom: -40,
         right: 0,
         left: 0,
         height: 40,
@@ -40,8 +40,8 @@ const Footer = Container => {
                         <View style={styles.footer}>
                             <Text>123</Text>
                         </View>
+                        <View style={styles.flexBottom} />
                     </View>
-                    <View style={styles.flexBottom} />
                 </SafeAreaView>
             );
         }

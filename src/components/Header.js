@@ -66,13 +66,13 @@ class Header extends Component {
                         &#xe601;
                     </Text>
                     <Text
-                        onPress={() => navigation.navigate('Detail')}
+                        onPress={() => navigation.navigate('Music')}
                         style={[styles.utilIconStyle, styles.centerIcon, isFind ? { color: '#fff' } : {}]}
                     >
                         &#xe600;
                     </Text>
                     <Text
-                        onPress={() => navigation.navigate('Drawer')}
+                        onPress={() => {}}
                         style={[styles.utilIconStyle, styles.centerIcon, isMV ? { color: '#fff' } : {}]}
                     >
                         &#xe60c;

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigation';
 import { Header, Footer } from '@components';
 import Home from '@routes/Home';
-import Detail from '@routes/Detail';
+import Music from './Music';
 
 // 顶部路由
 const HomeNavigatorScreen = createMaterialTopTabNavigator(
     {
         Home,
-        Detail,
+        Music,
     },
     {
         initialRouteName: 'Home',
