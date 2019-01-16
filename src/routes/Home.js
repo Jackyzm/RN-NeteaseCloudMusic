@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import theme from '@utils/theme';
 import { padding, shadow } from '@utils/style';
 import { isEmptyObj } from '@utils/utils';
-import { Button } from '@components';
+import { Button, SongListContent } from '@components';
 
 const styles = StyleSheet.create({
     topUserBox: {
@@ -59,6 +59,8 @@ const styles = StyleSheet.create({
 @inject(state => ({
     userInfo: state.user.userInfo,
     userLocal: state.user.userLocal,
+    userSubCount: state.user.userSubCount,
+    getUserSubCount: state.user.getUserSubCount,
 }))
 @observer
 class Home extends Component {
@@ -69,10 +71,13 @@ class Home extends Component {
     componentDidMount() {
         // const { getPersonalized } = this.props;
         // getPersonalized();
+        const { getUserSubCount } = this.props;
+        getUserSubCount();
     }
 
     render() {
-        const { userInfo, userLocal } = this.props;
+        const { userInfo, userLocal, userSubCount } = this.props;
+        console.log(userInfo, userSubCount);
         return (
             <ScrollView alwaysBounceVertical={false} style={{ backgroundColor: '#fff' }}>
                 <View style={{ backgroundColor: '#fff', paddingBottom: 10 }}>
@@ -171,6 +176,23 @@ class Home extends Component {
                             </View>
                         </View>
                     </View>
+                    {/* <View>
+                        <View>
+                            <Text style={{ fontFamily: 'iconfont' }}>&#xe605;</Text>
+                            <Text>创建的歌单({userSubCount.createdPlaylistCount || 0})</Text>
+                        </View>
+                        <Text style={{ fontFamily: 'iconfont' }}>&#xe605;</Text>
+                    </View> */}
+                    <SongListContent title="创建的歌单" num={userSubCount.createdPlaylistCount}>
+                        <View>
+                            <Text>123213</Text>
+                        </View>
+                    </SongListContent>
+                    <SongListContent title="收藏的歌单" num={userSubCount.subPlaylistCount}>
+                        <View>
+                            <Text>个梵蒂冈地方</Text>
+                        </View>
+                    </SongListContent>
                     <Text style={{ fontSize: 50 }}>滚动测试</Text>
                     <Text style={{ fontSize: 50 }}>滚动测试</Text>
                     <Text style={{ fontSize: 50 }}>滚动测试</Text>

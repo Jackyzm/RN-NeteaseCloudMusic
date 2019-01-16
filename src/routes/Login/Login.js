@@ -192,7 +192,7 @@ class Login extends Component {
                                     onPressOut={() => {
                                         this.setState({ wangYi: false });
                                     }}
-                                    onPress={() => {}}
+                                    onPress={() => navigation.navigate('LoginWithEmail')}
                                     style={[
                                         styles.loginTypeStyleContent,
                                         {

@@ -3,12 +3,14 @@ import { createAppContainer, createMaterialTopTabNavigator } from 'react-navigat
 import { Header, Footer } from '@components';
 import Home from '@routes/Home';
 import Music from './Music';
+import Video from './Video';
 
 // 顶部路由
 const HomeNavigatorScreen = createMaterialTopTabNavigator(
     {
         Home,
         Music,
+        Video,
     },
     {
         initialRouteName: 'Home',

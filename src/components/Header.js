@@ -44,9 +44,9 @@ class Header extends Component {
         let isMusic = false;
         let isFind = false;
         let isMV = false;
-        if (this.props.navigation.state.index === 0) {
+        if (navigation.state.index === 0) {
             isMusic = true;
-        } else if (this.props.navigation.state.index === 1) {
+        } else if (navigation.state.index === 1) {
             isFind = true;
         } else {
             isMV = true;
@@ -72,7 +72,7 @@ class Header extends Component {
                         &#xe600;
                     </Text>
                     <Text
-                        onPress={() => {}}
+                        onPress={() => navigation.navigate('Video')}
                         style={[styles.utilIconStyle, styles.centerIcon, isMV ? { color: '#fff' } : {}]}
                     >
                         &#xe60c;

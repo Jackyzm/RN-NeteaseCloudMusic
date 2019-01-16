@@ -1,55 +1,96 @@
 import { observable, action } from 'mobx';
 import storage from '@utils/storage';
-import { _loginWithPhone, _loginWithEmail, _getPersonalized } from '../utils/api/common';
+import { _loginWithPhone, _loginWithEmail, _logout, _getUserSubCount, _getUserDetail } from '../utils/api/common';
+import { Message } from '@components';
 
 class User {
     @observable userInfo;
 
+    @observable userLocal;
+
+    @observable userSubCount;
+
+    @observable userDetail;
+
     constructor() {
         this.userInfo = {};
         this.userLocal = {};
-        storage.getData('userInfo').then(res => {
+        this.userSubCount = {};
+        this.userDetail = {};
+
+        storage.getItem('userInfo').then(res => {
             this.userInfo = JSON.parse(res);
+            this.getUserDetail({ uid: this.userInfo.profile.userId });
         });
-        storage.getData('userLocal').then(res => {
+
+        storage.getItem('userLocal').then(res => {
             this.userLocal = JSON.parse(res);
         });
     }
 
     @action
-    getPersonalized = () => {
-        _getPersonalized()
-            .then(res => {
-                console.log(res);
-            })
-            .catch(e => {
-                console.log(e);
-            });
+    getUserDetail = params => {
+        _getUserDetail(params).then(res => {
+            if (res.code === 200) {
+                storage.setItem('userDetail', JSON.stringify(res)).then(() => {
+                    this.userDetail = res;
+                });
+            }
+        });
+    };
+
+    @action
+    getUserSubCount = () => {
+        _getUserSubCount().then(res => {
+            if (res.code === 200) {
+                storage.setItem('userSubCount', JSON.stringify(res)).then(() => {
+                    this.userSubCount = res;
+                });
+            }
+        });
     };
 
     @action
     loginWithPhone = (params, callback) => {
-        _loginWithPhone(params)
-            .then(res => {
-                console.log(res);
-                storage.setData('userInfo', JSON.stringify(res)).then(() => {
+        _loginWithPhone(params).then(res => {
+            if (res.code === 200) {
+                storage.setItem('userInfo', JSON.stringify(res)).then(() => {
+                    this.userInfo = res;
                     if (callback) callback();
                 });
-            })
-            .catch(e => {
-                console.log(e);
-            });
+            } else if (res.msg) {
+                Message(res.msg);
+            } else {
+                Message('账号或密码错误！');
+            }
+        });
     };
 
     @action
-    loginWithEmail = params => {
-        _loginWithEmail(params)
-            .then(res => {
-                console.log(res);
-            })
-            .catch(e => {
-                console.log(e);
-            });
+    loginWithEmail = (params, callback) => {
+        _loginWithEmail(params).then(res => {
+            if (res.code === 200) {
+                storage.setItem('userInfo', JSON.stringify(res)).then(() => {
+                    this.userInfo = res;
+                    if (callback) callback();
+                });
+            } else if (res.msg) {
+                Message(res.msg);
+            } else {
+                Message('账号或密码错误！');
+            }
+        });
+    };
+
+    @action
+    logout = (params, callback) => {
+        _logout(params).then(res => {
+            if (res.code === 200) {
+                storage.removeItem('userInfo').then(() => {
+                    if (callback) callback();
+                });
+            }
+        });
     };
 }
 

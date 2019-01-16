@@ -1,25 +1,39 @@
 import { AsyncStorage } from 'react-native';
 
-async function setData(key, value) {
+async function setItem(key, value) {
     return await AsyncStorage.setItem(key, value)
-        .then(res => res)
+        .then(res => Promise.resolve(res))
         .catch(() => Promise.reject());
 }
 
-async function getData(key) {
+async function getItem(key) {
     return await AsyncStorage.getItem(key)
         .then(res => {
             if (res !== null) {
-                return res;
+                return Promise.resolve(res);
             }
             return Promise.reject();
         })
         .catch(() => Promise.reject());
 }
 
-const Storages = {
-    setData,
-    getData,
+async function removeItem(key) {
+    return await AsyncStorage.removeItem(key)
+        .then(res => Promise.resolve(res))
+        .catch(() => Promise.reject());
+}
+
+async function mergeItem(key, value) {
+    return await AsyncStorage.mergeItem(key, value)
+        .then(res => Promise.resolve(res))
+        .catch(() => Promise.reject());
+}
+
+const myStorage = {
+    setItem,
+    getItem,
+    removeItem,
+    mergeItem,
 };
 
-export default Storages;
+export default myStorage;

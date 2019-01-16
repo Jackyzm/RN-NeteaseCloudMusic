@@ -15,12 +15,13 @@ const styles = StyleSheet.create({
 
 @inject(state => ({
     userInfo: state.user.userInfo,
-    userLocal: state.user.userLocal,
+    logout: state.user.logout,
 }))
 @observer
 class CustomDrawerContentComponent extends Component {
     render() {
-        const { userInfo } = this.props;
+        const { userInfo, logout } = this.props;
+        const { navigation } = NavigationService;
         return (
             <View style={styles.CustomDrawerContentComponent}>
                 {isEmptyObj(userInfo) ? (
@@ -40,7 +41,7 @@ class CustomDrawerContentComponent extends Component {
                         <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 10 }}>
                             <Button
                                 onPress={() => {
-                                    NavigationService.navigation.navigate('Login');
+                                    navigation.navigate('Login');
                                 }}
                                 style={{
                                     borderColor: '#aaa',
@@ -55,7 +56,11 @@ class CustomDrawerContentComponent extends Component {
                     </ImageBackground>
                 ) : (
                     <ImageBackground
-                        source={require('@assets/DrawerBg.jpg')}
+                        source={
+                            userInfo.profile && userInfo.profile.backgroundUrl
+                                ? { uri: userInfo.profile.backgroundUrl }
+                                : require('@assets/DrawerBg.jpg')
+                        }
                         style={{ width: '100%', height: 240, position: 'relative' }}
                     >
                         <View style={{ position: 'absolute', bottom: 0 }}>
@@ -63,6 +68,22 @@ class CustomDrawerContentComponent extends Component {
                         </View>
                     </ImageBackground>
                 )}
+                <View style={{ position: 'absolute', bottom: 40, flexDirection: 'row' }}>
+                    {!isEmptyObj(userInfo) ? (
+                        <View style={{ flex: 1 }}>
+                            <Button
+                                onPress={() => {
+                                    logout({}, () => navigation.navigate('Login'));
+                                }}
+                            >
+                                注销
+                            </Button>
+                        </View>
+                    ) : null}
+                    <View style={{ flex: 1 }}>
+                        <Button>退出</Button>
+                    </View>
+                </View>
             </View>
         );
     }
