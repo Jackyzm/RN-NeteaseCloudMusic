@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, StyleSheet, SafeAreaView } from 'react-native';
+import { observer, inject } from 'mobx-react';
 import theme from '@utils/theme';
+// import Video from 'react-native-video';
 
 const styles = StyleSheet.create({
     SafeAreaView: {
@@ -31,14 +33,28 @@ const styles = StyleSheet.create({
 });
 
 const Footer = Container => {
+    @inject(state => ({
+        playSong: state.common.playSong,
+    }))
+    @observer
     class WrappedComponent extends Component {
         render() {
+            const { playSong } = this.props;
+            console.log(playSong);
             return (
                 <SafeAreaView style={styles.SafeAreaView}>
                     <View style={styles.container}>
                         <Container {...this.props} />
                         <View style={styles.footer}>
-                            <Text>123</Text>
+                            {/* <Video
+                                    source={{ uri: playSong.url }} // Can be a URL or a local file.
+                                    // ref={ref => {
+                                    //     this.player = ref;
+                                    // }} // Store reference
+                                    // onBuffer={this.onBuffer} // Callback when remote video is buffering
+                                    // onError={this.videoError} // Callback when video cannot be loaded
+                                    // style={styles.backgroundVideo}
+                                /> */}
                         </View>
                         <View style={styles.flexBottom} />
                     </View>

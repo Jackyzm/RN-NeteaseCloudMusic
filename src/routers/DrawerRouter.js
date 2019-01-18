@@ -3,7 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { CustomDrawerContentComponent } from '@components';
 import DrawerNavigationService from '@utils/DrawerNavigationService';
-import HomeContainerComponent from './Home';
+import HomeContainerComponent from './Home/Home';
 
 const DrawerNavigator = createDrawerNavigator(
     {
@@ -11,7 +11,6 @@ const DrawerNavigator = createDrawerNavigator(
             DrawerNavigationService.setTopLevelNavigator(props);
             return <HomeContainerComponent />;
         },
-        // Login: LoginNavigatorScreen,
     },
     {
         drawerWidth: 300, // 展示的宽度

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, ScrollView, View, StyleSheet, Image } from 'react-native';
+import { toJS } from 'mobx';
 import { observer, inject } from 'mobx-react';
 import theme from '@utils/theme';
 import { padding, shadow } from '@utils/style';
@@ -57,10 +58,10 @@ const styles = StyleSheet.create({
 });
 
 @inject(state => ({
-    userInfo: state.user.userInfo,
-    userLocal: state.user.userLocal,
-    userSubCount: state.user.userSubCount,
-    getUserSubCount: state.user.getUserSubCount,
+    userInfo: toJS(state.user.userInfo),
+    userLocal: toJS(state.user.userLocal),
+    userSubCount: toJS(state.user.userSubCount),
+    userPlaylist: toJS(state.user.userPlaylist),
 }))
 @observer
 class Home extends Component {
@@ -71,16 +72,16 @@ class Home extends Component {
     componentDidMount() {
         // const { getPersonalized } = this.props;
         // getPersonalized();
-        const { getUserSubCount } = this.props;
-        getUserSubCount();
     }
 
     render() {
-        const { userInfo, userLocal, userSubCount } = this.props;
-        console.log(userInfo, userSubCount);
+        const { userInfo, userLocal, userSubCount, userPlaylist } = this.props;
+        console.log(userPlaylist);
+        const createdPlaylist = userPlaylist.slice(0, userSubCount.createdPlaylistCount || 0);
+        const subPlaylist = userPlaylist.slice(userSubCount.createdPlaylistCount || 0);
         return (
             <ScrollView alwaysBounceVertical={false} style={{ backgroundColor: '#fff' }}>
-                <View style={{ backgroundColor: '#fff', paddingBottom: 10 }}>
+                <View style={{ backgroundColor: '#fff', paddingBottom: 20 }}>
                     {!isEmptyObj(userInfo) ? (
                         <View style={styles.topUserBox}>
                             <View style={{ backgroundColor: theme.primaryTheme.color, height: 80 }} />
@@ -88,11 +89,11 @@ class Home extends Component {
                                 <View style={styles.userAvatar}>
                                     <View style={{ flexDirection: 'row' }}>
                                         <Image
-                                            source={{ uri: userInfo.profile.avatarUrl }}
+                                            source={{ uri: userInfo.profile && userInfo.profile.avatarUrl }}
                                             style={{ backgroundColor: '#ccc', width: 50, height: 50, borderRadius: 25 }}
                                         />
                                         <Text style={{ lineHeight: 50, marginLeft: 10 }}>
-                                            {userInfo.profile.nickname}
+                                            {userInfo.profile && userInfo.profile.nickname}
                                         </Text>
                                     </View>
                                     <View style={{ paddingTop: 10 }}>
@@ -176,36 +177,18 @@ class Home extends Component {
                             </View>
                         </View>
                     </View>
-                    {/* <View>
-                        <View>
-                            <Text style={{ fontFamily: 'iconfont' }}>&#xe605;</Text>
-                            <Text>创建的歌单({userSubCount.createdPlaylistCount || 0})</Text>
-                        </View>
-                        <Text style={{ fontFamily: 'iconfont' }}>&#xe605;</Text>
-                    </View> */}
-                    <SongListContent title="创建的歌单" num={userSubCount.createdPlaylistCount}>
-                        <View>
-                            <Text>123213</Text>
-                        </View>
-                    </SongListContent>
-                    <SongListContent title="收藏的歌单" num={userSubCount.subPlaylistCount}>
-                        <View>
-                            <Text>个梵蒂冈地方</Text>
-                        </View>
-                    </SongListContent>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
-                    <Text style={{ fontSize: 50 }}>滚动测试</Text>
+                    <SongListContent
+                        title="创建的歌单"
+                        num={userSubCount.createdPlaylistCount}
+                        list={createdPlaylist}
+                        type="create"
+                    />
+                    <SongListContent
+                        title="收藏的歌单"
+                        num={userSubCount.subPlaylistCount}
+                        list={subPlaylist}
+                        type="sub"
+                    />
                 </View>
             </ScrollView>
         );

@@ -65,7 +65,7 @@ export default function request(url, options) {
         // eslint-disable-next-line
         fetch(newUrl, newOptions)
             // .then(checkStatus)
-            .then((response) => {
+            .then(response => {
                 if (newOptions.method === 'DELETE' || response.status === 204) {
                     return response.text();
                 }
